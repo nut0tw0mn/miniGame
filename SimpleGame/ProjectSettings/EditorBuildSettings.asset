@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TicTacToe.unity
     guid: 3fd44bb16bfac89468111d7cddca02a6
+  - enabled: 1
+    path: Assets/Scenes/Memory.unity
+    guid: cdd3f94a35ce7c3448c3ac150b1c336a
   m_configObjects: {}

@@ -5,15 +5,15 @@ using System.Collections;
 
 public class MemoryGame : MonoBehaviour
 {
-    [SerializeField]private Button[] cards;       // จำนวนต้องเป็นเลขคู่
-    [SerializeField]private Sprite[] cardImages;  // รูปต่าง ๆ (ใช้ 2 ใบต่อ 1 รูป)
-    [SerializeField] private Sprite cardBack;      // รูปด้านหลังการ์ด
+    [SerializeField]private Button[] cards;      
+    [SerializeField]private Sprite[] cardImages;  
+    [SerializeField] private Sprite cardBack;      
     [SerializeField] private Text statusText;
 
     [SerializeField] private Button backButton;
     [SerializeField] private Button restartButton;
 
-    private int[] cardIds;       // index -> image id
+    private int[] cardIds;       
     private bool[] matched;
     private int firstIndex = -1;
     private int secondIndex = -1;
@@ -22,22 +22,22 @@ public class MemoryGame : MonoBehaviour
 
     void Start()
     {
-        // ผูก onClick ให้ปุ่มทุกใบด้วยโค้ด (ไม่ต้องเซ็ตใน Inspector)
+        
         for (int i = 0; i < cards.Length; i++)
         {
-            int index = i; // ต้องเก็บไว้ในตัวแปร local กัน bug capture
+            int index = i; 
             if (cards[i] == null)
             {
                 Debug.LogError("Card button at index " + i + " is NULL");
                 continue;
             }
 
-            cards[i].onClick.RemoveAllListeners();                    // กัน event เก่าที่อาจหลงเหลือ
-            cards[i].onClick.AddListener(() => OnCardClicked(index)); // ผูก event ใหม่
+            cards[i].onClick.RemoveAllListeners();                    
+            cards[i].onClick.AddListener(() => OnCardClicked(index)); 
         }
         backButton.onClick.AddListener(BackToMenu);
         restartButton.onClick.AddListener(RestartGame);
-        
+
         SetupGame();
     }
 
